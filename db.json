@@ -1,4 +1,19 @@
 {
-  "blogs": {},
-  "test": 1670205843810
+  "blogs": {
+    "8645f47a-9624-414f-bda8-9c1d340ed07e": {
+      "title": "New Blog",
+      "description": "Some description",
+      "isDone": false,
+      "createdDate": 1670572227861,
+      "updatedDate": 1670572227861
+    },
+    "9eb3abf0-1e8c-4d61-bf5b-a7546ec7cec9": {
+      "title": "New Blog 2",
+      "description": "Some description 2",
+      "isDone": true,
+      "createdDate": 1670572227870,
+      "updatedDate": 1670572227870
+    }
+  },
+  "test": 1670572227373
 }
