@@ -68,6 +68,7 @@
     ]
   },
   "dependencies": {
-    "fastify": "^4.10.2"
+    "fastify": "^4.10.2",
+    "uuid": "^9.0.0"
   }
 }
