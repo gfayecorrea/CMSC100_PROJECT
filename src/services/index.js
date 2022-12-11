@@ -6,6 +6,7 @@ import { getBlog } from './blogs/get-blog.js';
 import { updateBlog } from './blogs/update-blog.js';
 import { registerUser } from './user/register-user.js';
 import { login } from './user/login.js';
+import { logout } from './user/logout.js';
 
 export class Service {
   constructor (app) {
@@ -22,4 +23,5 @@ export class Service {
   // user functions
   registerUser = registerUser
   login = login
+  logout = logout
 }

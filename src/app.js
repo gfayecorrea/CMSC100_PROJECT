@@ -6,6 +6,7 @@ import cookie from '@fastify/cookie';
 import session from '@fastify/secure-session';
 import jwt from '@fastify/jwt';
 import { Service } from './services/index.js';
+import { Security } from './security/index.js';
 import { specification } from './specification/index.js';
 
 const prefix = '/api';
@@ -31,10 +32,12 @@ export async function build () {
   fastify.register(sensible);
 
   const service = new Service();
+  const securityHandlers = new Security(fastify);
 
   const openAPIGlueOptions = {
     specification,
     service,
+    securityHandlers,
     prefix
   };
 

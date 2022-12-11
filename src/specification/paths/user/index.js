@@ -10,7 +10,10 @@ export const user = {
         200: {
           $ref: '#/components/responses/SuccessfulUserResponse'
         }
-      }
+      },
+      security: [
+        {}
+      ]
     }
   },
   '/login': {
@@ -24,7 +27,26 @@ export const user = {
         200: {
           $ref: '#/components/responses/SuccessfulResponse'
         }
-      }
+      },
+      security: [
+        {}
+      ]
+    }
+  },
+  '/logout': {
+    get: {
+      summary: 'Logs out a user',
+      operationId: 'logout',
+      responses: {
+        200: {
+          $ref: '#/components/responses/SuccessfulResponse'
+        }
+      },
+      security: [
+        {
+          cookieAuth: []
+        }
+      ]
     }
   }
 };
