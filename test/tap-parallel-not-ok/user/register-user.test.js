@@ -1,5 +1,5 @@
 import tap from 'tap';
-import { build } from '../../src/app.js';
+import { build } from '../../../src/app.js';
 import 'must/register.js';
 import Chance from 'chance';
 
@@ -9,7 +9,7 @@ tap.mochaGlobals();
 
 const prefix = '/api';
 
-describe('Logging in a user should work', async () => {
+describe('Register a user should work', async () => {
   let app;
 
   before(async () => {
@@ -48,54 +48,17 @@ describe('Logging in a user should work', async () => {
     result.updatedDate.must.not.be.null();
   });
 
-  it('Login should work', async () => {
+  it('Should return error HTTP code 400 if using the same username', async () => {
     const response = await app.inject({
       method: 'POST',
-      url: `${prefix}/login`,
+      url: `${prefix}/register`,
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        username: newUser.username,
-        password: newUser.password
-      })
+      body: JSON.stringify(newUser)
     });
 
     // this checks if HTTP status code is equal to 200
-    response.statusCode.must.be.equal(200);
-  });
-
-  it('Login should return an error if username doesn\'t exist', async () => {
-    const response = await app.inject({
-      method: 'POST',
-      url: `${prefix}/login`,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: 'test',
-        password: 'password'
-      })
-    });
-
-    // this checks if HTTP status code is equal to 200
-    response.statusCode.must.be.equal(401);
-  });
-
-  it('Login should return an error if password is incorrect', async () => {
-    const response = await app.inject({
-      method: 'POST',
-      url: `${prefix}/login`,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: newUser.username,
-        password: 'password'
-      })
-    });
-
-    // this checks if HTTP status code is equal to 200
-    response.statusCode.must.be.equal(401);
+    response.statusCode.must.be.equal(400);
   });
 });

@@ -1,5 +1,5 @@
 import tap from 'tap';
-import { build } from '../../src/app.js';
+import { build } from '../../../src/app.js';
 import 'must/register.js';
 import Chance from 'chance';
 
@@ -9,7 +9,7 @@ tap.mochaGlobals();
 
 const prefix = '/api';
 
-describe('Logging out a user should work', async () => {
+describe('Get a blog should work', async () => {
   let app;
 
   before(async () => {
@@ -69,30 +69,43 @@ describe('Logging out a user should work', async () => {
     cookie = response.headers['set-cookie'];
   });
 
-  it('Logout should work', async () => {
-    const response = await app.inject({
-      method: 'GET',
-      url: `${prefix}/logout`,
+  it('Should return the object given an ID', async () => {
+    const newBlog = {
+      title: 'New Blog for get',
+      description: 'Some description'
+    };
+
+    const createResponse = await app.inject({
+      method: 'POST',
+      url: `${prefix}/blog`,
       headers: {
         'Content-Type': 'application/json',
         cookie
-      }
+      },
+      body: JSON.stringify(newBlog)
     });
 
-    // this checks if HTTP status code is equal to 401
-    response.statusCode.must.be.equal(200);
-  });
+    const { id } = await createResponse.json();
 
-  it('Logout should return an error without a cookie', async () => {
     const response = await app.inject({
       method: 'GET',
-      url: `${prefix}/logout`,
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      url: `${prefix}/blog/${id}`
     });
 
-    // this checks if HTTP status code is equal to 401
-    response.statusCode.must.be.equal(401);
+    // this checks if HTTP status code is equal to 200
+    response.statusCode.must.be.equal(200);
+
+    const result = await response.json();
+
+    // expect that id exists
+    result.id.must.equal(id);
+    // expect that all of the values should be equal to newTodo properties
+    result.title.must.be.equal(newBlog.title);
+    result.description.must.be.equal(newBlog.description);
+    // expect taht isDone is false because it was not given
+    result.isDone.must.be.false();
+    // expect createdDate and updatedDate is not null
+    result.createdDate.must.not.be.null();
+    result.updatedDate.must.not.be.null();
   });
 });
