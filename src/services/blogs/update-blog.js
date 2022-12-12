@@ -13,7 +13,7 @@ export const updateBlog = async (request, reply) => {
   const db = await getDB();
 
   // check if the username logged in is the same as the username saved on the blog to delete
-  if (db.todos[id].username !== username) {
+  if (db.blogs[id].username !== username) {
     return reply.forbidden('Sorry, you are not the owner of this blog.');
   }
 

@@ -9,12 +9,12 @@ export const deleteBlog = async (request, reply) => {
   if (!username) {
     return reply.badRequest('Sorry, you are not logged in.');
   }
-  
+
   // check if the username logged in is the same as the username saved on the blog to delete
-  if (db.todos[id].username !== username) {
+  if (db.blogs[id].username !== username) {
     return reply.forbidden('Sorry, you are not the owner of this blog.');
   }
-  
+
   delete db.blogs[id];
 
   await saveDB(db);
