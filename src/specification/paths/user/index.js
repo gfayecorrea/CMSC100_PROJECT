@@ -1,4 +1,69 @@
 export const user = {
+  '/user/:userId': {
+    get: {
+      summary: 'See user data',
+      operationId: 'getUser',
+      parameters: [
+        {
+          $ref: '#/components/parameters/UserParameterId'
+        }
+      ],
+      responses: {
+        200: {
+          description: 'A user object',
+          content: {
+            'application/json': {
+              schema: {
+                $ref: '#/components/schemas/UserObject'
+              }
+            }
+          }
+        }
+      },
+      security: [
+        {
+          cookieAuth: []
+        }
+      ]
+    },
+    put: {
+      summary: 'Change own user data',
+      operationId: 'updateUser',
+      parameters: [
+        {
+          $ref: '#/components/parameters/UserParameterId'
+        }
+      ],
+      requestBody: {
+        description: 'The request body for user',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/components/schemas/UserRequestObject'
+            }
+          }
+        },
+        required: true
+      },
+      responses: {
+        200: {
+          description: 'A user object',
+          content: {
+            'application/json': {
+              schema: {
+                $ref: '#/components/schemas/UserObject'
+              }
+            }
+          }
+        }
+      },
+      security: [
+        {
+          cookieAuth: []
+        }
+      ]
+    }
+  },
   '/register': {
     post: {
       summary: 'Register a new user',
