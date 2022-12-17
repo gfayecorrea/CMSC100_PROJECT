@@ -74,6 +74,9 @@ export const schemas = {
   UserObject: {
     type: 'object',
     properties: {
+      id: {
+        type: 'string'
+      },
       username: {
         type: 'string'
       },
@@ -107,6 +110,20 @@ export const schemas = {
     properties: {
       success: {
         type: 'boolean'
+      }
+    }
+  },
+  UserRequestObject: {
+    type: 'object',
+    properties: {
+      username: {
+        type: 'string'
+      },
+      firstName: {
+        type: 'string'
+      },
+      lastName: {
+        type: 'string'
       }
     }
   }
