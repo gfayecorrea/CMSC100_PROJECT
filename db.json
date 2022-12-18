@@ -1,12 +1,4 @@
 {
-  "users": {
-    "gfayecorres": {
-      "hashedPassword": "$2b$10$kTarq/dkJ7WQTF.e6l3z.Og/2WQl5uXBpeLV.mSh0fU6l8BwlNiZ2",
-      "firstName": "Glazelle",
-      "lastName": "Correa",
-      "createdDate": 1670757970263,
-      "updatedDate": 1670757970263
-    }
-  },
+  "users": {},
   "blogs": {}
 }

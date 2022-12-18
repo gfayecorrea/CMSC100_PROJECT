@@ -54,6 +54,51 @@ export const schemas = {
       }
     }
   },
+  CommentObject: {
+    type: 'object',
+    properties: {
+      id: {
+        type: 'string'
+      },
+      description: {
+        type: 'string'
+      },
+      isDone: {
+        type: 'boolean'
+      },
+      createdDate: {
+        type: 'number'
+      },
+      updatedDate: {
+        type: 'number'
+      }
+    }
+  },
+  CommentRequestRequiredObject: {
+    type: 'object',
+    properties: {
+      description: {
+        type: 'string'
+      },
+      isDone: {
+        type: 'boolean'
+      }
+    },
+    required: [
+      'description'
+    ]
+  },
+  CommentRequestObject: {
+    type: 'object',
+    properties: {
+      description: {
+        type: 'string'
+      },
+      isDone: {
+        type: 'boolean'
+      }
+    }
+  },
   NewUserObject: {
     type: 'object',
     properties: {
