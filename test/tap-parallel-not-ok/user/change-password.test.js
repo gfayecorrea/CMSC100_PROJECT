@@ -80,7 +80,7 @@ describe('Change user password should work', async () => {
 
     const createResponse = await app.inject({
       method: 'POST',
-      url: `${prefix}/user`,
+      url: `${prefix}/change-password`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -92,7 +92,7 @@ describe('Change user password should work', async () => {
 
     const response = await app.inject({
       method: 'POST',
-      url: `${prefix}/user/${id}`,
+      url: `${prefix}/change-password`,
       headers: {
         'Content-Type': 'application/json',
         cookie

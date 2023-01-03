@@ -76,7 +76,7 @@ describe('Delete a comment should work', async () => {
 
     const createResponse = await app.inject({
       method: 'POST',
-      url: `${prefix}/comment`,
+      url: `${prefix}//blog/:blogId/comment`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -88,7 +88,7 @@ describe('Delete a comment should work', async () => {
 
     const response = await app.inject({
       method: 'DELETE',
-      url: `${prefix}/comment/${id}`
+      url: `${prefix}//blog/:blogId/comment/${id}`
     });
 
     // this checks if HTTP status code is equal to 200
@@ -101,7 +101,7 @@ describe('Delete a comment should work', async () => {
 
     const getResponse = await app.inject({
       method: 'GET',
-      url: `${prefix}/comment/${id}`
+      url: `${prefix}/blog/:blogId/comment/${id}`
     });
 
     getResponse.statusCode.must.be.equal(404);

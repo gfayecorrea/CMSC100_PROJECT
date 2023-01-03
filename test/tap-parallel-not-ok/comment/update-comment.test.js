@@ -81,7 +81,7 @@ describe('Update a comment should work', async () => {
 
     const createResponse = await app.inject({
       method: 'POST',
-      url: `${prefix}/comment`,
+      url: `${prefix}/blog/:blogId/comment`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -93,7 +93,7 @@ describe('Update a comment should work', async () => {
 
     const response = await app.inject({
       method: 'PUT',
-      url: `${prefix}/comment/${id}`,
+      url: `${prefix}/blog/:blogId/comment/${id}`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -127,7 +127,7 @@ describe('Update a comment should work', async () => {
 
     const createResponse = await app.inject({
       method: 'POST',
-      url: `${prefix}/comment`,
+      url: `${prefix}/blog/:blogId/comment`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -139,7 +139,7 @@ describe('Update a comment should work', async () => {
 
     const response = await app.inject({
       method: 'PUT',
-      url: `${prefix}/comment/${id}`,
+      url: `${prefix}/blog/:blogId/comment/${id}`,
       headers: {
         'Content-Type': 'application/json',
         cookie

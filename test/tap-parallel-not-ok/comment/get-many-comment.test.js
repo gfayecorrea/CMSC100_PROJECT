@@ -75,7 +75,7 @@ describe('Get many comments should work', async () => {
       headers: {
         cookie
       },
-      url: `${prefix}/comment`
+      url: `${prefix}/blog/:blogId/comment`
     });
 
     // this checks if HTTP status code is equal to 200
