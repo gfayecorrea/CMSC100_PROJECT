@@ -1,5 +1,5 @@
 export const comment = {
-  '/comment/:commentId': {
+  '/blog/:blogId/comment/:commentId': {
     get: {
       summary: 'Get a comment',
       operationId: 'getComment',
@@ -95,7 +95,7 @@ export const comment = {
       ]
     }
   },
-  '/comment': {
+  '/blog/:blogId/comment': {
     post: {
       summary: 'Add a comment',
       operationId: 'addComment',

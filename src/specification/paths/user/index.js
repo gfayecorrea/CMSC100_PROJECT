@@ -39,7 +39,7 @@ export const user = {
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/UserRequestObject'
+              $ref: '#/components/schemas/UpdateUserData'
             }
           }
         },
@@ -68,11 +68,6 @@ export const user = {
     post: {
       summary: 'Change User Password',
       operationId: 'changePassword',
-//      parameters: [
-//        {
-//          $ref: '#/components/parameters/UserParameterId'
- //       }
-//      ],
       requestBody: {
         description: 'The request body for user',
         content: {
@@ -86,14 +81,7 @@ export const user = {
       },
       responses: {
         200: {
-          description: 'A user object',
-          content: {
-            'application/json': {
-              schema: {
-                $ref: '#/components/schemas/UserObject'
-              }
-            }
-          }
+          $ref: '#/components/responses/SuccessfulResponse'
         }
       },
       security: [

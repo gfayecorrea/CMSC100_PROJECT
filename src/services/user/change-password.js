@@ -25,6 +25,7 @@ export const changePassword = async (request, reply) => {
   await saveDB(db);
 
   return {
+    success: true,
     username,
     ...db.users[username]
   };

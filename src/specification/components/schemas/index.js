@@ -179,5 +179,16 @@ export const schemas = {
         type: 'string'
       }
     }
+  },
+  UpdateUserData: {
+    type: 'object',
+    properties: {
+      firstName: {
+        type: 'string'
+      },
+      lastName: {
+        type: 'string'
+      }
+    }
   }
 };
