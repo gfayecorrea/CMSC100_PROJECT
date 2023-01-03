@@ -171,5 +171,13 @@ export const schemas = {
         type: 'string'
       }
     }
+  },
+  UserChangePassword: {
+    type: 'object',
+    properties: {
+      password: {
+        type: 'string'
+      }
+    }
   }
 };

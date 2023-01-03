@@ -62,21 +62,23 @@ export const user = {
           cookieAuth: []
         }
       ]
-    },
+    }
+  },
+  '/change-password': {
     post: {
       summary: 'Change User Password',
       operationId: 'changePassword',
-      parameters: [
-        {
-          $ref: '#/components/parameters/UserParameterId'
-        }
-      ],
+//      parameters: [
+//        {
+//          $ref: '#/components/parameters/UserParameterId'
+ //       }
+//      ],
       requestBody: {
         description: 'The request body for user',
         content: {
           'application/json': {
             schema: {
-              $ref: '#/components/schemas/UserRequestObject'
+              $ref: '#/components/schemas/UserChangePassword'
             }
           }
         },
