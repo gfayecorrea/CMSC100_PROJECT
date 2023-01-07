@@ -22,7 +22,29 @@ describe('Creating a blog should work', async () => {
   let cookie = '';
 
   before(async () => {
-    app = await build();
+    app = await build({
+      forceCloseConnections: true
+    });
+  });
+
+  it('Should return an error when there is no user logged in', async () => {
+    const newBlog = {
+      title: 'New Blog',
+      description: 'Some description'
+    };
+
+    const response = await app.inject({
+      method: 'POST',
+      url: `${prefix}/blog`,
+      headers: {
+        'Content-Type': 'application/json',
+        cookie
+      },
+      body: JSON.stringify(newBlog)
+    });
+
+    // this checks if HTTP status code is equal to 400
+    response.statusCode.must.be.equal(400);
   });
 
   it('Should return the user that was created a new user', async () => {
@@ -69,10 +91,11 @@ describe('Creating a blog should work', async () => {
     cookie = response.headers['set-cookie'];
   });
 
+  // Start test here
   it('Should return the object that was created with ID with isDone = false without isDone being given', async () => {
     const newBlog = {
-      title: 'New Blog',
-      description: 'Some description'
+      title: 'New Blog 1 ',
+      description: 'Some description 1'
     };
 
     const response = await app.inject({
@@ -102,7 +125,7 @@ describe('Creating a blog should work', async () => {
     result.updatedDate.must.not.be.null();
   });
 
-  it('Should return the object that was created with ID with isDone = to the given object', async () => {
+  it('Should return the object that was created with ID with isDone = true to the given object', async () => {
     const newBlog = {
       title: 'New Blog 2',
       description: 'Some description 2',
@@ -133,5 +156,9 @@ describe('Creating a blog should work', async () => {
     // expect createdDate and updatedDate is not null
     result.createdDate.must.not.be.null();
     result.updatedDate.must.not.be.null();
+  });
+
+  after(async () => {
+    await app.close();
   });
 });

@@ -6,6 +6,104 @@
       "lastName": "Correa",
       "createdDate": 1673056564560,
       "updatedDate": 1673056904376
+    },
+    "jiz@example.com": {
+      "hashedPassword": "$2b$10$PpJt18Dc.YImuvYy14nt.uZNP1.CUHO9UwGSCUqJOOaRFPBsZWZyu",
+      "firstName": "Viola",
+      "lastName": "Marquez",
+      "createdDate": 1673088452835,
+      "updatedDate": 1673088452835
+    },
+    "babwogjij@example.com": {
+      "hashedPassword": "$2b$10$/vdKBkNo9GJ.PGWurCE1..oekdwhu1Jj.dEynbM/HbW2yHBrh/3Zu",
+      "firstName": "Georgie",
+      "lastName": "Sutton",
+      "createdDate": 1673088454827,
+      "updatedDate": 1673088454827
+    },
+    "uli@example.com": {
+      "hashedPassword": "$2b$10$xK3.2JFYdkePswEebUl6c.IzG/rqzb6oyJCOzooW.1joCjLEZOkDG",
+      "firstName": "Isaiah",
+      "lastName": "West",
+      "createdDate": 1673088457085,
+      "updatedDate": 1673088457085
+    },
+    "jekjiem@example.com": {
+      "hashedPassword": "$2b$10$DOL1brXo5D.U.p.b/5sucObD33tIXOoLtEopSWvfKEVUx1nstxtU.",
+      "firstName": "Rodney",
+      "lastName": "Stefani",
+      "createdDate": 1673088459169,
+      "updatedDate": 1673088459169
+    },
+    "ris@example.com": {
+      "hashedPassword": "$2b$10$twVdP/BEDSmynSUN5fmU1Og//I3LJpxpsYR4smsSiyJ2GymIFLM3C",
+      "firstName": "Kenneth",
+      "lastName": "Mason",
+      "createdDate": 1673088461025,
+      "updatedDate": 1673088461025
+    },
+    "tarhukti@example.com": {
+      "hashedPassword": "$2b$10$cTwGTNzyK.d065ckE2XPtOkUWrFieqYD3oBFg.x2obl8hjJttqV3i",
+      "firstName": "Annie",
+      "lastName": "Perez",
+      "createdDate": 1673088463168,
+      "updatedDate": 1673088463168
+    },
+    "zimi@example.com": {
+      "hashedPassword": "$2b$10$eVMkDjESejsdnv4AyGISDOWJ7ovmr23neyFEjxCKhtvMnrmDBwRvG",
+      "firstName": "Willie",
+      "lastName": "Ménard",
+      "createdDate": 1673088465008,
+      "updatedDate": 1673088465008
+    },
+    "jig@example.com": {
+      "hashedPassword": "$2b$10$Dgsj88PrdThBrSPxLKiTBeM6oMSMiIactPOOXxOdl2P2p0LUmrS2S",
+      "firstName": "Sophia",
+      "lastName": "Briggs",
+      "createdDate": 1673088467074,
+      "updatedDate": 1673088467074
+    },
+    "deg@example.com": {
+      "hashedPassword": "$2b$10$m8e9fBRWJE0i2wgoPXtNT.fdsCPedy.b7OymKdbH2Pt/Hy093sTUy",
+      "firstName": "Lee",
+      "lastName": "Gabbrielli",
+      "createdDate": 1673088469135,
+      "updatedDate": 1673088469135
+    },
+    "fol@example.com": {
+      "hashedPassword": "$2b$10$KD1DL1dYdOXT7ltceXbYAOhzsbAMTEbO6WE7qLM15ONVu3Q4hx6zS",
+      "firstName": "Evelyn",
+      "lastName": "Pratt",
+      "createdDate": 1673088471005,
+      "updatedDate": 1673088471005
+    },
+    "kamu@example.com": {
+      "hashedPassword": "$2b$10$VL5W7dw8y/5WKPvLPTYpiuSZBbxvKa4XvQ.N6wcFOlimCdbG6U6XK",
+      "firstName": "Kathryn",
+      "lastName": "Sanesi",
+      "createdDate": 1673088473048,
+      "updatedDate": 1673088473048
+    },
+    "wotap@example.com": {
+      "hashedPassword": "$2b$10$fLmuMm41UGYyuAGz.7Skt.Azv006M0Pzz0DkowDZELdzjuJsdX8Wa",
+      "firstName": "Mason",
+      "lastName": "Miller",
+      "createdDate": 1673088474927,
+      "updatedDate": 1673088474927
+    },
+    "ezuado@example.com": {
+      "hashedPassword": "$2b$10$oTdTKFQpzDHZmYzU0Gd8pu4csfi/Iu8snXaZLWmddlFPVJiwSHOlS",
+      "firstName": "Christina",
+      "lastName": "Hart",
+      "createdDate": 1673088476779,
+      "updatedDate": 1673088476779
+    },
+    "boteefi@example.com": {
+      "hashedPassword": "$2b$10$i7Cfg9ORePkj.af7fWF/QOpY9GaLv2zoLule99XNK0oHpH.50mhgG",
+      "firstName": "Alberta",
+      "lastName": "Roselli",
+      "createdDate": 1673088478619,
+      "updatedDate": 1673088478619
     }
   },
   "blogs": {
@@ -14,9 +112,100 @@
       "description": "Description 1",
       "isDone": true,
       "username": "gfayecorrea",
-      "comments": {},
+      "comments": {
+        "6acd3240-f120-4532-98b0-69b50a27ad4f": {
+          "description": "Some description",
+          "isDone": false,
+          "username": "tere@example.com",
+          "createdDate": 1673073837500,
+          "updatedDate": 1673073837500
+        },
+        "0f52421c-0471-4fab-afa1-0915c0a2839e": {
+          "description": "Some description",
+          "isDone": false,
+          "username": "tarhukti@example.com",
+          "createdDate": 1673088463239,
+          "updatedDate": 1673088463239
+        },
+        "22d1cd98-71c1-4ee8-8d55-adbe4a3e315f": {
+          "description": "Some description 2",
+          "isDone": true,
+          "username": "tarhukti@example.com",
+          "createdDate": 1673088463241,
+          "updatedDate": 1673088463241
+        },
+        "4936f940-bcea-485f-a3e3-d5fc7240b84d": {
+          "description": "Some description 2",
+          "isDone": true,
+          "username": "jig@example.com",
+          "createdDate": 1673088467147,
+          "updatedDate": 1673088467149
+        },
+        "f42f85b8-1eb4-419e-8c3e-39f4facbdd4d": {
+          "description": "Some description",
+          "isDone": true,
+          "username": "jig@example.com",
+          "createdDate": 1673088467152,
+          "updatedDate": 1673088467153
+        }
+      },
       "createdDate": 1673064449125,
       "updatedDate": 1673064449125
+    },
+    "e203bfa5-fbd1-41c2-8c95-b1f205ffb670": {
+      "title": "New Blog 1 ",
+      "description": "Some description 1",
+      "isDone": false,
+      "username": "jiz@example.com",
+      "comments": {},
+      "createdDate": 1673088452930,
+      "updatedDate": 1673088452930
+    },
+    "b598c163-39d9-48bd-8756-ef296ed9d4c4": {
+      "title": "New Blog 2",
+      "description": "Some description 2",
+      "isDone": true,
+      "username": "jiz@example.com",
+      "comments": {},
+      "createdDate": 1673088452933,
+      "updatedDate": 1673088452933
+    },
+    "96c20863-ab37-4d25-b993-22f9fc12e06f": {
+      "title": "New Blog for get",
+      "description": "Some description",
+      "isDone": false,
+      "username": "uli@example.com",
+      "comments": {},
+      "createdDate": 1673088457157,
+      "updatedDate": 1673088457157
+    },
+    "1ba35c17-7f0c-4451-965b-5103107979e1": {
+      "title": "New Blog for update",
+      "description": "Some description 2",
+      "isDone": true,
+      "username": "ris@example.com",
+      "comments": {},
+      "createdDate": 1673088461115,
+      "updatedDate": 1673088461117
+    },
+    "e634d3f9-e063-4492-9c48-88a97a32f63d": {
+      "title": "New Blog for get",
+      "description": "Some description",
+      "isDone": true,
+      "username": "ris@example.com",
+      "comments": {},
+      "createdDate": 1673088461119,
+      "updatedDate": 1673088461121
+    },
+    "7cbfc84d-ee9c-43e8-b952-ea4245c0c0d8": {
+      "title": "New Blog for update 2",
+      "description": "Some description",
+      "isDone": false,
+      "username": "ris@example.com",
+      "comments": {},
+      "createdDate": 1673088461123,
+      "updatedDate": 1673088461124
     }
-  }
+  },
+  "test": 1673088449338
 }

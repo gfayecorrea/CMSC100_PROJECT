@@ -22,7 +22,28 @@ describe('Adding a comment should work', async () => {
   let cookie = '';
 
   before(async () => {
-    app = await build();
+    app = await build({
+      forceCloseConnections: true
+    });
+  });
+
+  it('Should return an error when there is no user logged in', async () => {
+    const newComment = {
+      description: 'Some description'
+    };
+
+    const response = await app.inject({
+      method: 'POST',
+      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment`,
+      headers: {
+        'Content-Type': 'application/json',
+        cookie
+      },
+      body: JSON.stringify(newComment)
+    });
+
+    // this checks if HTTP status code is equal to 401
+    response.statusCode.must.be.equal(401);
   });
 
   it('Should return the user that was created a new user', async () => {
@@ -76,7 +97,7 @@ describe('Adding a comment should work', async () => {
 
     const response = await app.inject({
       method: 'POST',
-      url: `${prefix}/comment`,
+      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -99,7 +120,7 @@ describe('Adding a comment should work', async () => {
     result.updatedDate.must.not.be.null();
   });
 
-  it('Should return the object that was created with ID with isDone = to the given object', async () => {
+  it('Should return the object that was created with ID with isDone = true to the given object', async () => {
     const newComment = {
       description: 'Some description 2',
       isDone: true
@@ -107,7 +128,7 @@ describe('Adding a comment should work', async () => {
 
     const response = await app.inject({
       method: 'POST',
-      url: `${prefix}/comment`,
+      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -127,5 +148,9 @@ describe('Adding a comment should work', async () => {
     // expect createdDate and updatedDate is not null
     result.createdDate.must.not.be.null();
     result.updatedDate.must.not.be.null();
+  });
+
+  after(async () => {
+    await app.close();
   });
 });
