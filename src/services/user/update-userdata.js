@@ -10,6 +10,10 @@ export const updateUser = async (request, reply) => {
     return reply.badRequest('Sorry, you are not logged in.');
   }
 
+  if (id !== username) {
+    return reply.badRequest('Sorry, you are not the owner of the account.');
+  }
+
   const db = await getDB();
 
   db.users[id].firstName = firstName || db.users[id].firstName;
