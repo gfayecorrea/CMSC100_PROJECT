@@ -8,7 +8,10 @@
     "start": "nodemon src/index",
     "semistandard": "semistandard --fix",
     "tap": "c8 --lines 80 --functions 80 --branches 80 --statements 80 --check-coverage --per-file tap test/**/*.test.js test/**/**/*.test.js --no-coverage",
-    "test": "npm run semistandard && npm run tap"
+    "test": "npm run semistandard && npm run tap",
+    "webpack": "npx webpack -c webpack.dev.cjs --watch",
+    "webpack:build": "npx webpack -c webpack.dev.cjs",
+    "webpack:build:production": "npx webpack -c webpack.prod.cjs"
   },
   "repository": {
     "type": "git",
@@ -33,8 +36,11 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.18.9",
     "@babel/plugin-transform-runtime": "^7.19.1",
     "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.2",
     "c8": "^7.12.0",
     "chance": "^1.1.9",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "eslint": "8.19.0",
     "eslint-config-semistandard": "16.0.0",
     "eslint-config-standard": "17.0.0",
@@ -43,10 +49,17 @@
     "eslint-plugin-mocha": "10.0.5",
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-standard": "4.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "must": "^0.13.4",
     "nodemon": "^2.0.20",
+    "npm-run-all": "^4.1.5",
     "semistandard": "^16.0.1",
-    "tap": "^16.3.2"
+    "tap": "^16.3.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-merge": "^5.8.0",
+    "worker-loader": "^3.0.8"
   },
   "semistandard": {
     "plugins": [
@@ -73,10 +86,14 @@
     "@fastify/jwt": "^6.5.0",
     "@fastify/secure-session": "^5.3.0",
     "@fastify/sensible": "^5.1.1",
+    "@fastify/static": "^6.6.0",
     "@fastify/swagger": "^7.6.1",
+    "@tjmonsi/small-router": "^0.0.3",
     "bcrypt": "^5.1.0",
+    "comlink": "^4.3.1",
     "fastify": "^4.7.0",
     "fastify-openapi-glue": "^4.0.1",
+    "lit": "^2.5.0",
     "uuid": "^9.0.0"
   }
 }
