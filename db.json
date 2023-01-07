@@ -1,4 +1,21 @@
 {
-  "users": {},
-  "blogs": {}
+  "users": {
+    "gfayecorrea": {
+      "hashedPassword": "$2b$10$O80FW3FrCAzVZctNPPkmKu3wQJylmxFaLsqPF1p4uso1b8QVPMhEO",
+      "firstName": "Glazelle Faye",
+      "lastName": "Correa",
+      "createdDate": 1673056564560,
+      "updatedDate": 1673056904376
+    }
+  },
+  "blogs": {
+    "039b9e65-c683-4d19-ab56-f41582e9f817": {
+      "title": "Title 1",
+      "description": "Description 1",
+      "isDone": true,
+      "username": "gfayecorrea",
+      "createdDate": 1673056814532,
+      "updatedDate": 1673056814532
+    }
+  }
 }

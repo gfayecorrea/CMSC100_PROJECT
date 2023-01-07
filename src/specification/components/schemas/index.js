@@ -171,5 +171,24 @@ export const schemas = {
         type: 'string'
       }
     }
-  }
+  },
+  ChangePasswordObject: {
+    type: 'object',
+    properties: {
+      password: {
+        type: 'string'
+      }
+    }
+  },
+  ChangeUserRequestObject: {
+    type: 'object',
+    properties: {
+      firstName: {
+        type: 'string'
+      },
+      lastName: {
+        type: 'string'
+      }
+    }
+  },
 };
