@@ -7,7 +7,7 @@ export function template () {
       .blog {
         display: flex;
         align-items: center;
-        padding: 12px;
+        padding: 15px;
       }
       .blog * {
         flex: 1;

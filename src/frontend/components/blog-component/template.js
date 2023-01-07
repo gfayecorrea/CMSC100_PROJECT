@@ -37,7 +37,7 @@ export function template () {
       </div>
       <div class="label-input-group">
         <label for="isDone">
-          Done?:
+          Done:
         </label>
         <input type="checkbox" id="isDone" name="isDone" .checked="${this.blog?.isDone}">
       </div>

@@ -32,7 +32,17 @@ export const routes = {
       () => import('./pages/page-login/index.js')
     ]
   },
-  '/blogs': {
+  '/register': {
+    render: () => html`
+      <page-register></page-register>
+    `,
+    // runs all scripts, if any one of the functions in the list fails
+    preRender: [
+      redirectIfLoggedIn,
+      () => import('./pages/page-register/index.js')
+    ]
+  },
+  '/blog': {
     render: () => html`
       <page-blogs></page-blogs>
     `,
@@ -42,7 +52,7 @@ export const routes = {
       () => import('./pages/page-blogs/index.js')
     ]
   },
-  '/blogs/:id': {
+  '/blog/:id': {
     render: () => html`
       <page-blog-one .paramObject=${router.paramObject}></page-blog-one>
     `,
@@ -50,6 +60,36 @@ export const routes = {
     preRender: [
       redirectIfLoggedOut,
       () => import('./pages/page-blog-one/index.js')
+    ]
+  },
+  '/change-password': {
+    render: () => html`
+      <page-change-password></page-change-password>
+    `,
+    // runs all scripts, if any one of the functions in the list fails
+    preRender: [
+      redirectIfLoggedOut,
+      () => import('./pages/page-change-password/index.js')
+    ]
+  },
+  '/viewuser': {
+    render: () => html`
+      <page-viewuser></page-viewuser>
+    `,
+    // runs all scripts, if any one of the functions in the list fails
+    preRender: [
+      redirectIfLoggedOut,
+      () => import('./pages/page-viewuser/index.js')
+    ]
+  },
+  '/update-userdata': {
+    render: () => html`
+      <page-update-userdata></page-update-userdata>
+    `,
+    // runs all scripts, if any one of the functions in the list fails
+    preRender: [
+      redirectIfLoggedOut,
+      () => import('./pages/page-update-userdata/index.js')
     ]
   },
   '/logout': {

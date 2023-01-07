@@ -7,7 +7,7 @@ export function template () {
       .blog {
         display: flex;
         align-items: center;
-        padding: 12px;
+        padding: 15px;
       }
       .blog * {
         flex: 1;
@@ -27,7 +27,7 @@ export function template () {
     <div class="blog-list">
       ${this.blogs.map(blog => html`
         <div class="blog">
-          <a href="/blogs/${blog.id}">
+          <a href="/blog/${blog.id}">
             ${blog.title}
           </a>
           <p>
@@ -39,6 +39,6 @@ export function template () {
         </div>
       `)}
     </div>
-    <todo-component @submit-todo="${this.createBlog}"></todo-component>
+    <blog-component @submit-blog="${this.createBlog}"></blog-component>
   `;
 }
