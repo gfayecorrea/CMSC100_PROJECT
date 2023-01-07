@@ -57,7 +57,7 @@ class Page extends LitPage {
         return this.setErrorMessage(await response.json(), response.status);
       } else {
         this.blog = await response.json();
-        changeUrl('/blogs');
+        changeUrl('/blog');
       }
     } catch (error) {
       return this.setErrorMessage(error, 404);

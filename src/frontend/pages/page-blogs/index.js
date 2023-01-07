@@ -9,7 +9,7 @@ import { template } from './template.js';
 @customElement('page-blogs')
 class Page extends LitPage {
   @property({ type: Array })
-  todos = []
+  blogs = []
 
   @property({ type: String })
   errorMessage = ''
@@ -18,12 +18,12 @@ class Page extends LitPage {
   }
   async connectedCallback () {
     super.connectedCallback();
-    const response = await window.fetch('/api/todo');
+    const response = await window.fetch('/api/blog');
     if (response.status !== 200) {
       return this.setErrorMessage(await response.json(), response.status);
     }
     try {
-      this.todos = await response.json();
+      this.blogs = await response.json();
     } catch (error) {
       return this.setErrorMessage(error, 404);
     }

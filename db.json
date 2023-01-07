@@ -150,7 +150,7 @@
         }
       },
       "createdDate": 1673064449125,
-      "updatedDate": 1673064449125
+      "updatedDate": 1673106801786
     },
     "e203bfa5-fbd1-41c2-8c95-b1f205ffb670": {
       "title": "New Blog 1 ",
@@ -205,6 +205,15 @@
       "comments": {},
       "createdDate": 1673088461123,
       "updatedDate": 1673088461124
+    },
+    "28a25946-e28d-4719-9e22-eb2ec1462060": {
+      "title": "Blog 2",
+      "description": "Some Description",
+      "isDone": true,
+      "username": "gfayecorrea",
+      "comments": {},
+      "createdDate": 1673107587261,
+      "updatedDate": 1673107587261
     }
   },
   "test": 1673088449338
