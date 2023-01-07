@@ -2,7 +2,7 @@ import { getDB, saveDB } from '../../utils/db/index.js';
 
 export const deleteComment = async (request, reply) => {
   const { params, username } = request;
-  const { commentId: id } = params;
+  const { commentId: id, blogId: blogID } = params;
   const db = await getDB();
 
   // check if there is username (meaning logged in)
@@ -11,11 +11,11 @@ export const deleteComment = async (request, reply) => {
   }
 
   // check if the username logged in is the same as the username saved on the comment to delete
-  if (db.comments[id].username !== username) {
-    return reply.forbidden('Sorry, you are not the owner of this blog.');
+  if (db.blogs[blogID].comments[id].username !== username) {
+    return reply.forbidden('Sorry, you are not the owner of this comment.');
   }
 
-  delete db.comments[id];
+  delete db.blogs[blogID].comments[id];
 
   await saveDB(db);
 

@@ -14,6 +14,32 @@ export const schemas = {
       isDone: {
         type: 'boolean'
       },
+      username: {
+        type: 'string'
+      },
+      comments: {
+        type: 'object',
+        properties: {
+          id: {
+            type: 'string'
+          },
+          description: {
+            type: 'string'
+          },
+          isDone: {
+            type: 'boolean'
+          },
+          username: {
+            type: 'string'
+          },
+          createdDate: {
+            type: 'number'
+          },
+          updatedDate: {
+            type: 'number'
+          }
+        }
+      },
       createdDate: {
         type: 'number'
       },
@@ -54,6 +80,58 @@ export const schemas = {
       }
     }
   },
+  ViewBlogObject: {
+    type: 'object',
+    properties: {
+      id: {
+        type: 'string'
+      },
+      title: {
+        type: 'string'
+      },
+      description: {
+        type: 'string'
+      },
+      isDone: {
+        type: 'boolean'
+      },
+      username: {
+        type: 'string'
+      },
+      comments: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string'
+            },
+            description: {
+              type: 'string'
+            },
+            isDone: {
+              type: 'boolean'
+            },
+            username: {
+              type: 'string'
+            },
+            createdDate: {
+              type: 'number'
+            },
+            updatedDate: {
+              type: 'number'
+            }
+          }
+        }
+      },
+      createdDate: {
+        type: 'number'
+      },
+      updatedDate: {
+        type: 'number'
+      }
+    }
+  },
   CommentObject: {
     type: 'object',
     properties: {
@@ -65,6 +143,9 @@ export const schemas = {
       },
       isDone: {
         type: 'boolean'
+      },
+      username: {
+        type: 'string'
       },
       createdDate: {
         type: 'number'
@@ -119,9 +200,6 @@ export const schemas = {
   UserObject: {
     type: 'object',
     properties: {
-      id: {
-        type: 'string'
-      },
       username: {
         type: 'string'
       },

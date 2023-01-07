@@ -9,13 +9,14 @@
     }
   },
   "blogs": {
-    "039b9e65-c683-4d19-ab56-f41582e9f817": {
+    "8c4206d7-c186-45dd-a9aa-db7ce78f3fb3": {
       "title": "Title 1",
       "description": "Description 1",
       "isDone": true,
       "username": "gfayecorrea",
-      "createdDate": 1673056814532,
-      "updatedDate": 1673056814532
+      "comments": {},
+      "createdDate": 1673064449125,
+      "updatedDate": 1673064449125
     }
   }
 }

@@ -2,7 +2,7 @@ import { getDB } from '../../utils/db/index.js';
 
 export const getComment = async (request, reply) => {
   const { params, username } = request;
-  const { commentId: id } = params;
+  const { commentId: id, blogId: blogID } = params;
 
   // check if there is username (meaning logged in)
   if (!username) {
@@ -11,14 +11,14 @@ export const getComment = async (request, reply) => {
 
   const db = await getDB();
 
-  const { comments } = db;
+  const { blogs } = db;
 
-  if (!comments[id]) {
+  if (!blogs[blogID].comments[id]) {
     return reply.notFound('Comment not found.');
   }
 
   return {
     id,
-    ...comments[id]
+    ...blogs[blogID].comments[id]
   };
 };

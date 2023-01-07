@@ -1,11 +1,14 @@
 export const comment = {
-  '/comment/:commentId': {
+  '/blog/:blogId/comment/:commentId': {
     get: {
       summary: 'Get a comment',
       operationId: 'getComment',
       parameters: [
         {
           $ref: '#/components/parameters/CommentParameterId'
+        },
+        {
+          $ref: '#/components/parameters/BlogParameterId'
         }
       ],
       responses: {
@@ -32,6 +35,9 @@ export const comment = {
       parameters: [
         {
           $ref: '#/components/parameters/CommentParameterId'
+        },
+        {
+          $ref: '#/components/parameters/BlogParameterId'
         }
       ],
       requestBody: {
@@ -51,7 +57,7 @@ export const comment = {
           content: {
             'application/json': {
               schema: {
-                $ref: '#/components/schemas/CommentObject'
+                $ref: '#/components/schemas/CommentObject',
               }
             }
           }
@@ -69,6 +75,9 @@ export const comment = {
       parameters: [
         {
           $ref: '#/components/parameters/CommentParameterId'
+        },
+        {
+          $ref: '#/components/parameters/BlogParameterId'
         }
       ],
       responses: {
@@ -95,10 +104,15 @@ export const comment = {
       ]
     }
   },
-  '/comment': {
+  '/blog/:blogId/comment': {
     post: {
       summary: 'Add a comment',
       operationId: 'addComment',
+      parameters: [
+        {
+          $ref: '#/components/parameters/BlogParameterId'
+        }
+      ],
       requestBody: {
         description: 'The request body for comment.',
         content: {
@@ -138,7 +152,10 @@ export const comment = {
           description: 'The number of items returned',
           schema: {
             type: 'number'
-          }
+          },
+        },
+        {
+          $ref: '#/components/parameters/BlogParameterId'
         }
       ],
       responses: {
