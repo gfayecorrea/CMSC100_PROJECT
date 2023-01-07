@@ -5,6 +5,7 @@ import swagger from '@fastify/swagger';
 import cookie from '@fastify/cookie';
 import session from '@fastify/secure-session';
 import jwt from '@fastify/jwt';
+import stat from '@fastify/static';
 import { Service } from './services/index.js';
 import { Security } from './security/index.js';
 import { specification } from './specification/index.js';
@@ -47,23 +48,21 @@ export async function build () {
     exposeRoute: true
   };
 
+  // makes every 404 to point to our Web app frontend
+  fastify.setNotFoundHandler(function (_request, reply) {
+    // bad practice but force 404 to 200
+    reply.statusCode = 200;
+    // send the public/index.html
+    reply.sendFile('index.html');
+  });
+
+  fastify.register(stat, {
+    root: `${process.cwd()}/src/public`,
+    preCompressed: true
+  });
+
   fastify.register(swagger, swaggerOptions);
   fastify.register(openAPIGlue, openAPIGlueOptions);
-
-  // // create blog
-  // fastify.post(`${prefix}/blog`, createBlog);
-
-  // // get many blog
-  // fastify.get(`${prefix}/blog`, getManyBlog);
-
-  // // get one todo
-  // fastify.get(`${prefix}/blog/:blogId`, getBlog);
-
-  // // update one blog
-  // fastify.put(`${prefix}/blog/:blogId`, updateBlog);
-
-  // // delete one blog
-  // fastify.delete(`${prefix}/blog/:blogId`, deleteBlog);
 
   return fastify;
 }
