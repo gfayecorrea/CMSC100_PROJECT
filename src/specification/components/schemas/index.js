@@ -268,5 +268,5 @@ export const schemas = {
         type: 'string'
       }
     }
-  },
+  }
 };

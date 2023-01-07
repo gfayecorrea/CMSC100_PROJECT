@@ -23,19 +23,19 @@ export const getBlog = async (request, reply) => {
   }
 
   const comments = Object
-  .entries(blogs[id].comments)
-  .map(function ([id, comment]) {
-    return {
-      id,
-      ...comment
-    };
-  })
-  .sort(function (comment1, comment2) {
-    return comment2.createdDate - comment1.createdDate;
-  })
-  .filter((comment) => (username === comment.username));
+    .entries(blogs[id].comments)
+    .map(function ([id, comment]) {
+      return {
+        id,
+        ...comment
+      };
+    })
+    .sort(function (comment1, comment2) {
+      return comment2.createdDate - comment1.createdDate;
+    })
+    .filter((comment) => (username === comment.username));
 
-  blogs[id].comments = comments
+  blogs[id].comments = comments;
 
   return {
     id,
