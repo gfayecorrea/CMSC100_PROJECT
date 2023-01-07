@@ -13,7 +13,9 @@ describe('Register a user should work', async () => {
   let app;
 
   before(async () => {
-    app = await build();
+    app = await build({
+      forceCloseConnections: true
+    });
   });
 
   const newUser = {
@@ -60,5 +62,9 @@ describe('Register a user should work', async () => {
 
     // this checks if HTTP status code is equal to 200
     response.statusCode.must.be.equal(400);
+  });
+
+  after(async () => {
+    await app.close();
   });
 });

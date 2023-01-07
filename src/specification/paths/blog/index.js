@@ -14,7 +14,7 @@ export const blog = {
           content: {
             'application/json': {
               schema: {
-                $ref: '#/components/schemas/BlogObject'
+                $ref: '#/components/schemas/ViewBlogObject'
               }
             }
           }
@@ -35,7 +35,7 @@ export const blog = {
         }
       ],
       requestBody: {
-        description: 'THe request body for blog',
+        description: 'The request body for blog',
         content: {
           'application/json': {
             schema: {
@@ -149,7 +149,7 @@ export const blog = {
               schema: {
                 type: 'array',
                 items: {
-                  $ref: '#/components/schemas/BlogObject'
+                  $ref: '#/components/schemas/ViewBlogObject'
                 }
               }
             }

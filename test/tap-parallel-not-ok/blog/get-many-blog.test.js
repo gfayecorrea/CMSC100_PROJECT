@@ -13,7 +13,29 @@ describe('Get many blog should work', async () => {
   let app;
 
   before(async () => {
-    app = await build();
+    app = await build({
+      forceCloseConnections: true
+    });
+  });
+
+  it('Should return an error when there is no user logged in', async () => {
+    const newBlog = {
+      title: 'New Blog',
+      description: 'Some description'
+    };
+
+    const response = await app.inject({
+      method: 'GET',
+      url: `${prefix}/blog`,
+      headers: {
+        'Content-Type': 'application/json',
+        cookie
+      },
+      body: JSON.stringify(newBlog)
+    });
+
+    // this checks if HTTP status code is equal to 401
+    response.statusCode.must.be.equal(401);
   });
 
   const newUser = {
@@ -69,6 +91,7 @@ describe('Get many blog should work', async () => {
     cookie = response.headers['set-cookie'];
   });
 
+  // Start test here
   it('Should return a list of objects with default limit', async () => {
     const response = await app.inject({
       method: 'GET',
@@ -103,5 +126,9 @@ describe('Get many blog should work', async () => {
 
     // expect that id exists
     result.length.must.not.be.above(2);
+  });
+
+  after(async () => {
+    await app.close();
   });
 });

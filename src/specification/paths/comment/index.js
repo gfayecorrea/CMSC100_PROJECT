@@ -1,37 +1,43 @@
 export const comment = {
-  '/comment/:commentId': {
-    get: {
-      summary: 'Get a comment',
-      operationId: 'getComment',
-      parameters: [
-        {
-          $ref: '#/components/parameters/CommentParameterId'
-        }
-      ],
-      responses: {
-        200: {
-          description: 'A comment object',
-          content: {
-            'application/json': {
-              schema: {
-                $ref: '#/components/schemas/CommentObject'
-              }
-            }
-          }
-        }
-      },
-      security: [
-        {
-          cookieAuth: []
-        }
-      ]
-    },
+  '/blog/:blogId/comment/:commentId': {
+    // get: {
+    //   summary: 'Get a comment',
+    //   operationId: 'getComment',
+    //   parameters: [
+    //     {
+    //       $ref: '#/components/parameters/CommentParameterId'
+    //     },
+    //     {
+    //       $ref: '#/components/parameters/BlogParameterId'
+    //     }
+    //   ],
+    //   responses: {
+    //     200: {
+    //       description: 'A comment object',
+    //       content: {
+    //         'application/json': {
+    //           schema: {
+    //             $ref: '#/components/schemas/CommentObject'
+    //           }
+    //         }
+    //       }
+    //     }
+    //   },
+    //   security: [
+    //     {
+    //       cookieAuth: []
+    //     }
+    //   ]
+    // },
     put: {
       summary: 'Update a comment',
       operationId: 'updateComment',
       parameters: [
         {
           $ref: '#/components/parameters/CommentParameterId'
+        },
+        {
+          $ref: '#/components/parameters/BlogParameterId'
         }
       ],
       requestBody: {
@@ -69,6 +75,9 @@ export const comment = {
       parameters: [
         {
           $ref: '#/components/parameters/CommentParameterId'
+        },
+        {
+          $ref: '#/components/parameters/BlogParameterId'
         }
       ],
       responses: {
@@ -95,10 +104,15 @@ export const comment = {
       ]
     }
   },
-  '/comment': {
+  '/blog/:blogId/comment': {
     post: {
       summary: 'Add a comment',
       operationId: 'addComment',
+      parameters: [
+        {
+          $ref: '#/components/parameters/BlogParameterId'
+        }
+      ],
       requestBody: {
         description: 'The request body for comment.',
         content: {
@@ -127,40 +141,43 @@ export const comment = {
           cookieAuth: []
         }
       ]
-    },
-    get: {
-      summary: 'Get many comment',
-      operationId: 'getManyComment',
-      parameters: [
-        {
-          name: 'limit',
-          in: 'query',
-          description: 'The number of items returned',
-          schema: {
-            type: 'number'
-          }
-        }
-      ],
-      responses: {
-        200: {
-          description: 'A comment object',
-          content: {
-            'application/json': {
-              schema: {
-                type: 'array',
-                items: {
-                  $ref: '#/components/schemas/CommentObject'
-                }
-              }
-            }
-          }
-        }
-      },
-      security: [
-        {
-          cookieAuth: []
-        }
-      ]
     }
+  //   get: {
+  //     summary: 'Get many comment',
+  //     operationId: 'getManyComment',
+  //     parameters: [
+  //       {
+  //         name: 'limit',
+  //         in: 'query',
+  //         description: 'The number of items returned',
+  //         schema: {
+  //           type: 'number'
+  //         }
+  //       },
+  //       {
+  //         $ref: '#/components/parameters/BlogParameterId'
+  //       }
+  //     ],
+  //     responses: {
+  //       200: {
+  //         description: 'A comment object',
+  //         content: {
+  //           'application/json': {
+  //             schema: {
+  //               type: 'array',
+  //               items: {
+  //                 $ref: '#/components/schemas/CommentObject'
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     },
+  //     security: [
+  //       {
+  //         cookieAuth: []
+  //       }
+  //     ]
+  //   }
   }
 };

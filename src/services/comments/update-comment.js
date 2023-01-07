@@ -2,7 +2,7 @@ import { getDB, saveDB } from '../../utils/db/index.js';
 
 export const updateComment = async (request, reply) => {
   const { params, body, username } = request;
-  const { commentId: id } = params;
+  const { commentId: id, blogId: blogID } = params;
   const { description, isDone = null } = body;
 
   // check if there is username (meaning logged in)
@@ -13,18 +13,18 @@ export const updateComment = async (request, reply) => {
   const db = await getDB();
 
   // check if the username logged in is the same as the username saved on the comment to update
-  if (db.comments[id].username !== username) {
-    return reply.forbidden('Sorry, you are not the owner of this blog.');
+  if (db.blogs[blogID].comments[id].username !== username) {
+    return reply.forbidden('Sorry, you are not the owner of this comment.');
   }
 
-  db.comments[id].description = description || db.comments[id].description;
-  db.comments[id].isDone = isDone != null ? isDone : db.comments[id].isDone;
-  db.comments[id].updatedDate = new Date().getTime();
+  db.blogs[blogID].comments[id].description = description || db.blogs[blogID].comments[id].description;
+  db.blogs[blogID].comments[id].isDone = isDone != null ? isDone : db.blogs[blogID].comments[id].isDone;
+  db.blogs[blogID].comments[id].updatedDate = new Date().getTime();
 
   await saveDB(db);
 
   return {
     id,
-    ...db.comments[id]
+    ...db.blogs[blogID].comments[id]
   };
 };

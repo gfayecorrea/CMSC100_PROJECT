@@ -27,6 +27,21 @@ export const getManyBlog = async (request, reply) => {
     .filter((blog) => (username === blog.username));
 
   for (const blog of blogs) {
+    const comments = Object
+      .entries(blog.comments)
+      .map(function ([id, comment]) {
+        return {
+          id,
+          ...comment
+        };
+      })
+      .sort(function (comment1, comment2) {
+        return comment2.createdDate - comment1.createdDate;
+      })
+      .filter((comment) => (username === comment.username));
+
+    blog.comments = comments;
+
     list.push(blog);
     if (list.length >= limit) {
       break;

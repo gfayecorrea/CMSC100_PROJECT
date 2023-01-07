@@ -3,8 +3,7 @@ import { hash } from 'bcrypt';
 const saltRounds = 10;
 
 export const changePassword = async (request, reply) => {
-  const { params, body, username } = request;
-  const { userId: id } = params;
+  const { body, username } = request;
   const { password } = body;
 
   const db = await getDB();
@@ -14,23 +13,20 @@ export const changePassword = async (request, reply) => {
     return reply.badRequest('Sorry, you are not logged in.');
   }
 
-  if (db.users[id].username !== username) {
-    return reply.forbidden('Sorry, you are not the owner of this account.');
-  }
-
   if (password === '') {
     return reply.forbidden('Sorry, you have not enter a password.');
   }
 
   const hashedPassword = await hash(password, saltRounds);
 
-  db.users[id].hashedPassword = hashedPassword || db.users[id].hashedPassword;
-  db.users[id].updatedDate = new Date().getTime();
+  db.users[username].hashedPassword = hashedPassword || db.users[username].hashedPassword;
+  db.users[username].updatedDate = new Date().getTime();
 
   await saveDB(db);
 
   return {
-    id,
-    ...db.users[id]
+    success: true,
+    username,
+    ...db.users[username]
   };
 };
