@@ -18,8 +18,14 @@ export function template () {
         flex: 1;
       }
       form button {
-        margin-right: 10px;
-        margin-left: 10px;
+        margin: 0px;;
+        background-color: white;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        letter-spacing: .6px;
+        cursor: pointer;
+        color: black;
+        font-size: 10px;
       }
     </style>
       <div class="flex-group">
@@ -28,6 +34,5 @@ export function template () {
           ${this.text}
         </button>
       </div>
-    </form>
   `;
 }

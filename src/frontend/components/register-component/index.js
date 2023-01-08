@@ -21,7 +21,7 @@ class Component extends LitNoShadow {
     event.preventDefault();
     // gets the event.target and change the variable name to form
     const { target: form } = event;
-    console.log(form);
+
     const username = form.username.value;
     const password = form.password.value;
     const firstName = form.firstName.value;
@@ -40,7 +40,7 @@ class Component extends LitNoShadow {
       })
     });
     if (response.status === 200) {
-      this.errorMessage = '';
+      this.errorMessage = 'Saved successfully!';
       await state.set('user-is-logged-in', true);
       return changeUrl('/blog');
     }

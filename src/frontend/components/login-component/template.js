@@ -9,21 +9,65 @@ export function template () {
       max-width: 600px;
       padding: 10px;
     }
+
+    .form_class {
+      display: block;
+      margin: 10px auto 20px;
+      width: 500px;
+      padding: 40px;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+    }
+
     form .label-input-group {
       display: block;
       padding: 10px;
     }
+
+    form .label-input-group > label {
+      letter-spacing: 1px;
+      font-size: 1rem;
+    }
+
     form .flex-group {
       display: flex;
       padding: 10px;
       flex: 1;
     }
+
     form button {
-      margin-right: 10px;
-      margin-left: 10px;
+      background-color: #ff8000;
+      padding: 8px 20px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      display: block;
+      margin: auto;
+      margin-top: 10px;
+      cursor: pointer;
+      color: white;
     }
+
+    .info {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .field-input {
+      width: 100%;
+      border-radius: 6px;
+      border-style: solid;
+      border-width: 1px;
+      padding: 5px 0px;
+      text-indent: 6px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+
   </style>
-  <form @submit=${this.login}>
+  <form class="form_class" @submit=${this.login}>
     ${this.errorMessage
       // if this is an errorMessage
       ? html`
@@ -36,23 +80,24 @@ export function template () {
       <label for="username">
         Username:
       </label>
-      <input type="text" placeholder="username" id="username" name="username" required>
+      <input type="text" class="field-input" placeholder="Username" id="username" name="username" required>
     </div>
     <div class="label-input-group">
       <label for="password">
         Password:
       </label>
-      <input type="password" placeholder="password" id="password" name="password" required>
+      <input type="password" class="field-input" placeholder="Password" id="password" name="password" required>
     </div>
     <div class="flex-group">
       <button>
         Login
       </button>
-      <span>
-        Not registered? <a href="/register">Register Here</a>
-      </span>
     </div>
-    
+    <div class ="info" >
+      <p>
+        Not registered? <a href="/register">Register Here</a>
+      </p>
+    </div>
   </form>
   `;
 }

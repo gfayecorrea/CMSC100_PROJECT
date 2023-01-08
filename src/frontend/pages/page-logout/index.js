@@ -16,7 +16,7 @@ class Page extends LitPage {
     await window.fetch('/api/logout');
 
     state.set('user-is-logged-in', false);
-    changeUrl('/login');
+    changeUrl('/');
   }
 
   render () {
