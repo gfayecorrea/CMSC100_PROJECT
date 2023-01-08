@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 export const addComment = async (request, reply) => {
   const { params, body, username } = request;
   const { blogId: blogID } = params;
-  const { description, isDone = false } = body;
+  const { description = false } = body;
   const db = await getDB();
 
   const id = v4();
@@ -16,7 +16,6 @@ export const addComment = async (request, reply) => {
 
   const comment = {
     description,
-    isDone,
     username,
     createdDate: new Date().getTime(),
     updatedDate: new Date().getTime()

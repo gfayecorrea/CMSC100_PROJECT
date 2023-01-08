@@ -94,8 +94,7 @@ describe('Update a comment should work', async () => {
     };
 
     const newerComment = {
-      description: 'Some description 2',
-      isDone: true
+      description: 'Some description 2'
     };
 
     const createResponse = await app.inject({
@@ -128,54 +127,6 @@ describe('Update a comment should work', async () => {
     // expect that id exists
     result.id.must.equal(id);
     result.description.must.be.equal(newerComment.description);
-    // expect taht isDone is false because it was not given
-    result.isDone.must.be.equal(newerComment.isDone);
-    // expect createdDate and updatedDate is not null
-    result.createdDate.must.equal(createdDate);
-    result.updatedDate.must.above(updatedDate);
-  });
-
-  it('Should update the object given an ID and only isDone being updated', async () => {
-    const newComment = {
-      description: 'Some description'
-    };
-
-    const newerComment = {
-      isDone: true
-    };
-
-    const createResponse = await app.inject({
-      method: 'POST',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment`,
-      headers: {
-        'Content-Type': 'application/json',
-        cookie
-      },
-      body: JSON.stringify(newComment)
-    });
-
-    const { id, createdDate, updatedDate } = await createResponse.json();
-
-    const response = await app.inject({
-      method: 'PUT',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment/${id}`,
-      headers: {
-        'Content-Type': 'application/json',
-        cookie
-      },
-      body: JSON.stringify(newerComment)
-    });
-
-    // this checks if HTTP status code is equal to 200
-    response.statusCode.must.be.equal(200);
-
-    const result = await response.json();
-
-    // expect that id exists
-    result.id.must.equal(id);
-    result.description.must.be.equal(newComment.description);
-    // expect taht isDone is false because it was not given
-    result.isDone.must.be.equal(newerComment.isDone);
     // expect createdDate and updatedDate is not null
     result.createdDate.must.equal(createdDate);
     result.updatedDate.must.above(updatedDate);

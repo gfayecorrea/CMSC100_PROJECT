@@ -3,7 +3,7 @@ import { getDB, saveDB } from '../../utils/db/index.js';
 export const updateComment = async (request, reply) => {
   const { params, body, username } = request;
   const { commentId: id, blogId: blogID } = params;
-  const { description, isDone = null } = body;
+  const { description } = body;
 
   // check if there is username (meaning logged in)
   if (!username) {
@@ -18,7 +18,6 @@ export const updateComment = async (request, reply) => {
   }
 
   db.blogs[blogID].comments[id].description = description || db.blogs[blogID].comments[id].description;
-  db.blogs[blogID].comments[id].isDone = isDone != null ? isDone : db.blogs[blogID].comments[id].isDone;
   db.blogs[blogID].comments[id].updatedDate = new Date().getTime();
 
   await saveDB(db);

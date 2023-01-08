@@ -26,9 +26,6 @@ export const schemas = {
           description: {
             type: 'string'
           },
-          isDone: {
-            type: 'boolean'
-          },
           username: {
             type: 'string'
           },
@@ -109,9 +106,6 @@ export const schemas = {
             description: {
               type: 'string'
             },
-            isDone: {
-              type: 'boolean'
-            },
             username: {
               type: 'string'
             },
@@ -160,9 +154,6 @@ export const schemas = {
     properties: {
       description: {
         type: 'string'
-      },
-      isDone: {
-        type: 'boolean'
       }
     },
     required: [
