@@ -1,6 +1,7 @@
 import { customElement, property } from 'lit/decorators.js';
 import { LitNoShadow } from '../../utils/lit-no-shadow/index.js';
 import { template } from './template.js';
+import { changeUrl } from '../../utils/helpers/change-url.js';
 
 /**
  * @type {LitPage}
@@ -37,7 +38,8 @@ class Component extends LitNoShadow {
     });
 
     if (response.status === 200) {
-      this.errorMessage = '';
+      this.errorMessage = 'Saved successfully!';
+      
     }
     const { message, error } = await response.json();
     this.errorMessage = `HTTP Code: ${response.status} - ${error} - ${message}`;

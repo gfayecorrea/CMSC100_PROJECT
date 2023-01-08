@@ -14,6 +14,21 @@ export function template () {
       .blog * {
         flex: 1;
       }
+
+      p {
+        margin: 15px 0px;
+      }
+
+      button {
+        background-color: #ff8000;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        letter-spacing: .6px;
+        margin: auto;
+        margin-top: 5px;
+        cursor: pointer;
+        color: white;
+      }
     </style>
     
     ${this.errorMessage
@@ -27,10 +42,12 @@ export function template () {
 
       ${Object.keys(this.blog).length
         ? html`
-              <h2>${this.blog.title}</h2>
-              <h3>${this.blog.description}</h3>
-              <h4>by: ${this.blog.username}</h4>
-              <div> <h6> Created on ${new Date(this.blog.createdDate).toDateString()} || Last updated on ${new Date(this.blog.updatedDate).toDateString()} </h6> </div>
+              <div class="center">
+                <h2>${this.blog.title}</h2>
+                <p><em>by: ${this.blog.username}</em></p>
+                <h6> Created at ${new Date(this.blog.createdDate)} || Last update at ${new Date(this.blog.updatedDate)} </h6>
+              </div>
+              <h3 class="justify">${this.blog.description}</h3>
               
               <button @click="${this.updateblog}"> Update </button> 
               <button @click= "${this.deleteBlog}"> Delete </button> 

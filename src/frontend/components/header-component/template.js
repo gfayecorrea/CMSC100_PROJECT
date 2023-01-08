@@ -8,10 +8,10 @@ export function template () {
     <nav>
     ${this.loggedIn
       ? html`
-      <a href="/blog">
+      <a style="padding: 10px; font-weight:bolder; color: #ff8000;" href="/blog">
         Home
       </a>
-      <a href="/viewuser">
+      <a style="padding: 10px;" href="/viewuser">
         View Profile
       </a>
       <a href="/update-userdata">
@@ -20,12 +20,12 @@ export function template () {
       <a href="/change-password">
         Change Password
       </a>
-      <a href="/logout">
+      <a style="padding: 10px;" href="/logout">
         Logout
       </a>
       `
       : html`
-        <a href="/login">
+        <a style="text-align: right; padding: 0px 100px;" href="/login">
           Login
         </a>
       `}

@@ -28,7 +28,8 @@ class Page extends LitPage {
       return this.setErrorMessage(error, 404);
     }
   }
-  async createBlog (event) {
+
+  async getBlogs (event) {
     event.preventDefault();
     // we get the data from the detail being sent by the blog-component
     const { detail } = event;
@@ -50,6 +51,7 @@ class Page extends LitPage {
       return this.setErrorMessage(error, 404);
     }
   }
+
   async checkedBlog (event) {
     const { target: checkbox } = event;
     // we cannot deconstruct the checkbox to get the variables
