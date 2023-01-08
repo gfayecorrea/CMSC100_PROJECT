@@ -8,14 +8,17 @@ export function template () {
     <nav>
     ${this.loggedIn
       ? html`
+      <a href="/blog">
+        Home
+      </a>
       <a href="/viewuser">
         View Profile
       </a>
-        <a href="/update-userdata">
-          Update User Data
-        </a>
-        <a href="/change-password">
-          Change Password
+      <a href="/update-userdata">
+        Update User Data
+      </a>
+      <a href="/change-password">
+        Change Password
       </a>
       <a href="/logout">
         Logout

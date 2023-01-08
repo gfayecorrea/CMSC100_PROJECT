@@ -31,7 +31,8 @@ export function template () {
             ${blog.title}
           </a>
           <p>
-            ${blog.description} - Created at: ${new Date(blog.createdDate)}
+            ${blog.description} 
+            <div> Created at: ${new Date(blog.createdDate)} | Last update at: ${new Date(blog.updatedDate)} </div>
           </p>
           <p>
             Done: <input type="checkbox" .checked=${blog.isDone} id="${blog.id}" @click="${this.checkedBlog}">

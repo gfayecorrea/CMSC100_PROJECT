@@ -24,20 +24,19 @@ export function template () {
         </div>
       `
       : ''}
-    <div class="label-input-group">
-      <label for="username">
-        Enter Username:
-      </label>
-      <input type="text" placeholder="username" id="username" name="username">
-    </div>
-    <div class="flex-group">
-      <button>
-        View User
-      </button>
-    </div>
+     <div class="label-input-group">
+       <label for="username">
+         Enter Username:
+       </label>
+       <input type="text" placeholder="username" id="username" name="username">
+     </div>
+     <div class="flex-group">
+       <button>
+         View User
+       </button>
+     </div>
     ${Object.keys(this.userData).length
         ? html`
-        <h4> Username : ${this.userData.username}</h4>
         <h4> First Name : ${this.userData.firstName}</h4>
         <h4> Last Name : ${this.userData.lastName}</h4>
         <h4> Created Date : ${new Date(this.userData.createdDate).toDateString()}</h4>
