@@ -33,26 +33,20 @@ export function template () {
       `
       : ''}
     <div class="label-input-group">
-      <label for="username">
-        Username:
-      </label>
-      <input type="text" placeholder="username" id="username" name="username">
-    </div>
-    <div class="label-input-group">
       <label for="firstName">
         First Name:
       </label>
-      <input type="text" placeholder="firstName" id="firstName" name="firstName">
+      <input type="text" placeholder="Enter your First Name" id="firstName" name="firstName">
     </div>
     <div class="label-input-group">
         <label for="lastName">
         Last Name:
         </label>
-        <input type="text" placeholder="lastName" id="lastName" name="lastName">
+        <input type="text" placeholder="Enter your Last Name" id="lastName" name="lastName">
     </div>
     <div class="flex-group">
       <button>
-        Save New Data
+        Save
       </button>
     </div>
     

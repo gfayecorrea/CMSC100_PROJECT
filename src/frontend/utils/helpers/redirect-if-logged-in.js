@@ -7,7 +7,7 @@ export async function redirectIfLoggedIn () {
     userIsLoggedIn ||
     // will check backend if session exists
     (await window.fetch('/api/auth-check')).status === 200) {
-    // go to todos;
+    // go to blogs;
     await state.set('user-is-logged-in', true);
     return changeUrl('/blog');
   }

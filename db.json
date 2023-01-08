@@ -1,11 +1,11 @@
 {
   "users": {
     "gfayecorrea": {
-      "hashedPassword": "$2b$10$O80FW3FrCAzVZctNPPkmKu3wQJylmxFaLsqPF1p4uso1b8QVPMhEO",
-      "firstName": "Glazelle Faye",
+      "hashedPassword": "$2b$10$qZd45Y/obkjasWsxScAT/uIg4o8SfXWmJxJ6rxwX5Z2Dek7MhBTyi",
+      "firstName": "Faye",
       "lastName": "Correa",
       "createdDate": 1673056564560,
-      "updatedDate": 1673056904376
+      "updatedDate": 1673154721541
     },
     "jiz@example.com": {
       "hashedPassword": "$2b$10$PpJt18Dc.YImuvYy14nt.uZNP1.CUHO9UwGSCUqJOOaRFPBsZWZyu",
@@ -107,51 +107,6 @@
     }
   },
   "blogs": {
-    "8c4206d7-c186-45dd-a9aa-db7ce78f3fb3": {
-      "title": "Title 1",
-      "description": "Description 1",
-      "isDone": true,
-      "username": "gfayecorrea",
-      "comments": {
-        "6acd3240-f120-4532-98b0-69b50a27ad4f": {
-          "description": "Some description",
-          "isDone": false,
-          "username": "tere@example.com",
-          "createdDate": 1673073837500,
-          "updatedDate": 1673073837500
-        },
-        "0f52421c-0471-4fab-afa1-0915c0a2839e": {
-          "description": "Some description",
-          "isDone": false,
-          "username": "tarhukti@example.com",
-          "createdDate": 1673088463239,
-          "updatedDate": 1673088463239
-        },
-        "22d1cd98-71c1-4ee8-8d55-adbe4a3e315f": {
-          "description": "Some description 2",
-          "isDone": true,
-          "username": "tarhukti@example.com",
-          "createdDate": 1673088463241,
-          "updatedDate": 1673088463241
-        },
-        "4936f940-bcea-485f-a3e3-d5fc7240b84d": {
-          "description": "Some description 2",
-          "isDone": true,
-          "username": "jig@example.com",
-          "createdDate": 1673088467147,
-          "updatedDate": 1673088467149
-        },
-        "f42f85b8-1eb4-419e-8c3e-39f4facbdd4d": {
-          "description": "Some description",
-          "isDone": true,
-          "username": "jig@example.com",
-          "createdDate": 1673088467152,
-          "updatedDate": 1673088467153
-        }
-      },
-      "createdDate": 1673064449125,
-      "updatedDate": 1673106801786
-    },
     "e203bfa5-fbd1-41c2-8c95-b1f205ffb670": {
       "title": "New Blog 1 ",
       "description": "Some description 1",
@@ -206,14 +161,14 @@
       "createdDate": 1673088461123,
       "updatedDate": 1673088461124
     },
-    "28a25946-e28d-4719-9e22-eb2ec1462060": {
-      "title": "Blog 2",
-      "description": "Some Description",
+    "7907b922-5eb3-443c-90ff-70b9c7924706": {
+      "title": "Blog 1",
+      "description": "This is a blog",
       "isDone": true,
       "username": "gfayecorrea",
       "comments": {},
-      "createdDate": 1673107587261,
-      "updatedDate": 1673107587261
+      "createdDate": 1673159082456,
+      "updatedDate": 1673159738123
     }
   },
   "test": 1673088449338

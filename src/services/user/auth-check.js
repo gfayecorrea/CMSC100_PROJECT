@@ -1,5 +1,5 @@
 export const authCheck = async () => {
-    return {
-      success: true
-    };
+  return {
+    success: true
+  };
 };

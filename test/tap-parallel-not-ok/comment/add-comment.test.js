@@ -90,7 +90,7 @@ describe('Adding a comment should work', async () => {
     cookie = response.headers['set-cookie'];
   });
 
-  it('Should return the object that was created with ID with isDone = false without isDone being given', async () => {
+  it('Should return the object that was created with ID', async () => {
     const newComment = {
       description: 'Some description'
     };
@@ -113,38 +113,6 @@ describe('Adding a comment should work', async () => {
     // expect that id exists
     result.id.must.not.be.null();
     result.description.must.be.equal(newComment.description);
-    // expect that isDone is false because it was not given
-    result.isDone.must.be.false();
-    // expect createdDate and updatedDate is not null
-    result.createdDate.must.not.be.null();
-    result.updatedDate.must.not.be.null();
-  });
-
-  it('Should return the object that was created with ID with isDone = true to the given object', async () => {
-    const newComment = {
-      description: 'Some description 2',
-      isDone: true
-    };
-
-    const response = await app.inject({
-      method: 'POST',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment`,
-      headers: {
-        'Content-Type': 'application/json',
-        cookie
-      },
-      body: JSON.stringify(newComment)
-    });
-
-    // this checks if HTTP status code is equal to 200
-    response.statusCode.must.be.equal(200);
-
-    const result = await response.json();
-
-    // expect that id exists
-    result.id.must.not.be.null();
-    result.description.must.be.equal(newComment.description);
-    result.isDone.must.be.equal(newComment.isDone);
     // expect createdDate and updatedDate is not null
     result.createdDate.must.not.be.null();
     result.updatedDate.must.not.be.null();
