@@ -52,6 +52,16 @@ export const routes = {
       () => import('./pages/page-blogs/index.js')
     ]
   },
+  '/createblog': {
+    render: () => html`
+      <page-create-blog></page-create-blog>
+    `,
+    // runs all scripts, if any one of the functions in the list fails
+    preRender: [
+      redirectIfLoggedOut,
+      () => import('./pages/page-create-blog/index.js')
+    ]
+  },
   '/blog/:id': {
     render: () => html`
       <page-blog-one .paramObject=${router.paramObject}></page-blog-one>
