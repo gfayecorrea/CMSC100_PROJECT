@@ -87,7 +87,7 @@ export function template () {
         <label for="description">
           Description:
         </label>
-        <textarea type="text" class="field-input-des" minlenght="100" maxlength="500" placeholder="Description" id="description" name="description" value="${this.blog?.description}" required> </textarea>
+        <textarea type="text" class="field-input-des" maxlength="500" placeholder="Description" id="description" name="description" value="${this.blog?.description}" required> </textarea>
       </div>
       <div class="label-input-group">
         <label for="isDone">
