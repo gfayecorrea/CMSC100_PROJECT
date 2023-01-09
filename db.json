@@ -118,6 +118,20 @@
       "lastName": "Lastname",
       "createdDate": 1673251646573,
       "updatedDate": 1673251646731
+    },
+    "user": {
+      "hashedPassword": "$2b$10$WRO9nL.ziu6wTnWoAxM93.J0coARRbjecvUGUIaONeEV56li4dFjq",
+      "firstName": "first",
+      "lastName": "last",
+      "createdDate": 1673252577055,
+      "updatedDate": 1673252577055
+    },
+    "user2": {
+      "hashedPassword": "$2b$10$RGACTarcBm0vPCeHNkFLFextbM4XF8jZvn1A3ARf4htfMusoO6kAG",
+      "firstName": "Glazelle Faye",
+      "lastName": "Correa",
+      "createdDate": 1673252665021,
+      "updatedDate": 1673252829998
     }
   },
   "blogs": {
@@ -238,6 +252,15 @@
       "comments": {},
       "createdDate": 1673251618065,
       "updatedDate": 1673251618066
+    },
+    "33cb6be4-295b-4dcd-ac09-48fc4a5badb5": {
+      "title": "Blog 3",
+      "description": "Description 2",
+      "isDone": true,
+      "username": "user2",
+      "comments": {},
+      "createdDate": 1673252750963,
+      "updatedDate": 1673252761013
     }
   },
   "test": 1673251599138
