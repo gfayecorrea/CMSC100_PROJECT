@@ -6,14 +6,18 @@ export const registerUser = async (request, reply) => {
   const { body } = request;
   const { username, password, firstName, lastName } = body;
 
-  const hashedPassword = await hash(password, saltRounds);
-
   const db = await getDB();
 
   // if a username exists
   if (db.users[username]) {
     return reply.badRequest('Username already exists');
   }
+
+  if (password === '') {
+    return reply.forbidden('Sorry, you have not enter a password.');
+  }
+
+  const hashedPassword = await hash(password, saltRounds);
 
   const user = {
     hashedPassword,
