@@ -43,12 +43,12 @@ class Component extends LitNoShadow {
     });
     if (response.status === 200) {
       this.errorMessage = 'Saved successfully!';
-      await state.set('user-is-logged-in', true);
-      return changeUrl('/blog');
+      await state.set('user-is-logged-in', false);
+      return changeUrl('/');
     }
     const { message, error } = await response.json();
     this.errorMessage = `HTTP Code: ${response.status} - ${error} - ${message}`;
-    await state.set('user-is-logged-in', false);
+    await state.set('user-is-logged-in', true);
   }
 }
 
