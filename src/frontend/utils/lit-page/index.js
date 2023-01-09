@@ -4,8 +4,10 @@ import { LitElement } from 'lit';
 export class LitPage extends LitElement {
   @property({ type: String })
   path = ''
+
   @property({ type: String })
   hash = ''
+
   @property({ type: String })
   query = ''
 

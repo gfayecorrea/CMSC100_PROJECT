@@ -19,10 +19,9 @@ class Component extends LitPage {
     // gets the event.target and change the variable name to form
     const { target: form } = event;
 
-
-    const title = form.title.value
-    const description = form.description.value
-    const isDone = form.isDone.checked || false
+    const title = form.title.value;
+    const description = form.description.value;
+    const isDone = form.isDone.checked || false;
 
     // calls an API call
     const response = await window.fetch('/api/blog', {

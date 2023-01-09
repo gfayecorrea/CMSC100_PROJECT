@@ -12,9 +12,11 @@ class Page extends LitNoShadow {
 
   @property({ type: String })
   text = ''
+
   render () {
     return template.bind(this)();
   }
+
   async submitComment (event) {
     event.preventDefault();
     const detail = {

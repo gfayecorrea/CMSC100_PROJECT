@@ -13,9 +13,11 @@ class Page extends LitPage {
 
   @property({ type: String })
   errorMessage = ''
+
   render () {
     return template.bind(this)();
   }
+
   async connectedCallback () {
     super.connectedCallback();
     const response = await window.fetch('/api/blog');
@@ -77,6 +79,7 @@ class Page extends LitPage {
       return this.setErrorMessage(error, 404);
     }
   }
+
   async setErrorMessage (data, status) {
     const { message, error } = data;
     this.errorMessage = `HTTP Code: ${status} - ${error} - ${message}`;
