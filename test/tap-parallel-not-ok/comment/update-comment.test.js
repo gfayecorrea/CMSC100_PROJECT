@@ -99,7 +99,7 @@ describe('Update a comment should work', async () => {
 
     const createResponse = await app.inject({
       method: 'POST',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment`,
+      url: `${prefix}/blog/a46a4930-ef50-4a32-a8d1-720ab7a8db3d/comment`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -111,7 +111,7 @@ describe('Update a comment should work', async () => {
 
     const response = await app.inject({
       method: 'PUT',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment/${id}`,
+      url: `${prefix}/blog/a46a4930-ef50-4a32-a8d1-720ab7a8db3d/comment/${id}`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -167,12 +167,12 @@ describe('Update a comment should work', async () => {
 
   it('Should return an error when there is no user logged in', async () => {
     const newComment = {
-      description: 'Some description'
+      description: 'Nice'
     };
 
     const response = await app.inject({
       method: 'PUT',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment/6acd3240-f120-4532-98b0-69b50a27ad4f`,
+      url: `${prefix}/blog/a46a4930-ef50-4a32-a8d1-720ab7a8db3d/comment/cbb732e3-d4c1-4325-8680-d6e89e2f066a`,
       headers: {
         'Content-Type': 'application/json',
         cookie

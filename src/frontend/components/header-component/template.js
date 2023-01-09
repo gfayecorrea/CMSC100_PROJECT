@@ -2,8 +2,7 @@ import { html } from 'lit';
 
 export function template () {
   return html`<header>
-    <h1 style="color: #9c6218"> Blogging Rights &#153 </h1>
-    <img src="././images/logo.png" alt="logo" width="450" height="100">
+    <img style="margin-right: 100px;" src="/images/logo.png" alt="logo" width="450" height="90">
     <nav>
     ${this.loggedIn
       ? html`

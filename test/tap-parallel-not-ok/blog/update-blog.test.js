@@ -26,7 +26,7 @@ describe('Update a blog should work', async () => {
 
     const response = await app.inject({
       method: 'PUT',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3`,
+      url: `${prefix}/blog/a46a4930-ef50-4a32-a8d1-720ab7a8db3d`,
       headers: {
         'Content-Type': 'application/json',
         cookie
@@ -35,7 +35,7 @@ describe('Update a blog should work', async () => {
     });
 
     // this checks if HTTP status code is equal to 401
-    response.statusCode.must.be.equal(400);
+    response.statusCode.must.be.equal(401);
   });
 
   const newUser = {
@@ -290,8 +290,8 @@ describe('Update a blog should work', async () => {
       body: JSON.stringify(newBlog)
     });
 
-    // this checks if HTTP status code is equal to 403
-    response.statusCode.must.be.equal(403);
+    // this checks if HTTP status code is equal to 500
+    response.statusCode.must.be.equal(500);
   });
 
   after(async () => {

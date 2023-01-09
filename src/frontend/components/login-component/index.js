@@ -11,9 +11,11 @@ import { template } from './template.js';
 class Component extends LitNoShadow {
   @property({ type: String })
   errorMessage = ''
+
   render () {
     return template.bind(this)();
   }
+
   // this is called when submit button is clicked (see template.js)
   async login (event) {
     // this prevents the page from using the default behavior

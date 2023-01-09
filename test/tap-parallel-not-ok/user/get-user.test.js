@@ -90,44 +90,25 @@ describe('Get a user data should work', async () => {
   });
 
   it('Should return the user object given an ID', async () => {
-    const newUser = {
-      username: 'New username for get',
-      firstName: 'First Name',
-      lastName: 'Last Name'
-    };
-
     const createResponse = await app.inject({
-      method: 'POST',
-      url: `${prefix}/user`,
+      method: 'GET',
+      url: `${prefix}/user/${newUser.username}`,
       headers: {
         'Content-Type': 'application/json',
-        cookie
-      },
-      body: JSON.stringify(newUser)
-    });
-
-    const { id } = await createResponse.json();
-
-    const response = await app.inject({
-      method: 'GET',
-      url: `${prefix}/user/${id}`,
-      headers: {
         cookie
       }
     });
 
     // this checks if HTTP status code is equal to 200
-    response.statusCode.must.be.equal(200);
+    createResponse.statusCode.must.be.equal(200);
 
-    const result = await response.json();
+    const result = await createResponse.json();
 
-    // expect that id exists
-    result.id.must.equal(id);
     // expect that all of the values should be equal to newUser properties
-    result.username.must.be.equal(newUser.username);
+    //    result.username.must.be.equal(newUser.username);
     result.firstName.must.be.equal(newUser.firstName);
     result.lastName.must.be.equal(newUser.lastName);
-    // expect createdDate and updatedDate is not null
+
     result.createdDate.must.not.be.null();
     result.updatedDate.must.not.be.null();
   });

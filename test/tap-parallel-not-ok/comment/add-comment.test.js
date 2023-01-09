@@ -97,7 +97,7 @@ describe('Adding a comment should work', async () => {
 
     const response = await app.inject({
       method: 'POST',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment`,
+      url: `${prefix}/blog/a46a4930-ef50-4a32-a8d1-720ab7a8db3d/comment`,
       headers: {
         'Content-Type': 'application/json',
         cookie
