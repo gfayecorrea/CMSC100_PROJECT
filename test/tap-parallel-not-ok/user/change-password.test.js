@@ -91,7 +91,7 @@ describe('Change user password should work', async () => {
 
   it('Should change user password given an ID', async () => {
     const newUserPass = {
-      newpassword: 'password'
+      password: 'password123'
     };
 
     const createResponse = await app.inject({

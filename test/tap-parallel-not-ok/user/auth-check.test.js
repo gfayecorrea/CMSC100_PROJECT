@@ -9,8 +9,14 @@ tap.mochaGlobals();
 
 const prefix = '/api';
 
-describe('Delete a comment should work', async () => {
+describe('Authenticate check should work', async () => {
   let app;
+
+  before(async () => {
+    app = await build({
+      forceCloseConnections: true
+    });
+  });
 
   const newUser = {
     username: chance.email({ domain: 'example.com' }),
@@ -20,31 +26,6 @@ describe('Delete a comment should work', async () => {
   };
 
   let cookie = '';
-
-  before(async () => {
-    app = await build({
-      forceCloseConnections: true
-    });
-  });
-
-  it('Should return an error when there is no user logged in', async () => {
-    const newComment = {
-      description: 'Some description'
-    };
-
-    const response = await app.inject({
-      method: 'PUT',
-      url: `${prefix}/blog/8c4206d7-c186-45dd-a9aa-db7ce78f3fb3/comment/6acd3240-f120-4532-98b0-69b50a27ad4f`,
-      headers: {
-        'Content-Type': 'application/json',
-        cookie
-      },
-      body: JSON.stringify(newComment)
-    });
-
-    // this checks if HTTP status code is equal to 401
-    response.statusCode.must.be.equal(401);
-  });
 
   it('Should return the user that was created a new user', async () => {
     const response = await app.inject({
@@ -90,43 +71,18 @@ describe('Delete a comment should work', async () => {
     cookie = response.headers['set-cookie'];
   });
 
-  it('Should return the success = true if ID is deleted', async () => {
-    const newComment = {
-      description: 'Comment'
-    };
-
-    const newerComment = {
-      description: 'New Comment'
-    };
-
-    const createResponse = await app.inject({
-      method: 'POST',
-      url: `${prefix}/blog/a46a4930-ef50-4a32-a8d1-720ab7a8db3d/comment`,
-      headers: {
-        'Content-Type': 'application/json',
-        cookie
-      },
-      body: JSON.stringify(newComment)
-    });
-
-    const { id } = await createResponse.json();
-
+  it('Auth check should work', async () => {
     const response = await app.inject({
-      method: 'DELETE',
-      url: `${prefix}/blog/a46a4930-ef50-4a32-a8d1-720ab7a8db3d/comment/${id}`,
+      method: 'GET',
+      url: `${prefix}/auth-check`,
       headers: {
         'Content-Type': 'application/json',
         cookie
-      },
-      body: JSON.stringify(newerComment)
+      }
     });
 
     // this checks if HTTP status code is equal to 200
     response.statusCode.must.be.equal(200);
-
-    const result = await response.json();
-
-    result.success.must.be.true();
   });
 
   it('Logout should work', async () => {
@@ -143,42 +99,17 @@ describe('Delete a comment should work', async () => {
     response.statusCode.must.be.equal(200);
   });
 
-  it('Login should work', async () => {
+  it('Auth check should return an error if logged out', async () => {
     const response = await app.inject({
-      method: 'POST',
-      url: `${prefix}/login`,
+      method: 'GET',
+      url: `${prefix}/auth-check`,
       headers: {
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: 'username1',
-        password: 'password1'
-      })
+      }
     });
 
-    // this checks if HTTP status code is equal to 200
-    response.statusCode.must.be.equal(200);
-
-    cookie = response.headers['set-cookie'];
-  });
-
-  it('Should return an error when there is no user logged in', async () => {
-    const newComment = {
-      description: 'Some description'
-    };
-
-    const response = await app.inject({
-      method: 'DELETE',
-      url: `${prefix}/blog/a46a4930-ef50-4a32-a8d1-720ab7a8db3d/comment/cbb732e3-d4c1-4325-8680-d6e89e2f066a`,
-      headers: {
-        'Content-Type': 'application/json',
-        cookie
-      },
-      body: JSON.stringify(newComment)
-    });
-
-    // this checks if HTTP status code is equal to 403
-    response.statusCode.must.be.equal(403);
+    // this checks if HTTP status code is equal to 401
+    response.statusCode.must.be.equal(401);
   });
 
   after(async () => {

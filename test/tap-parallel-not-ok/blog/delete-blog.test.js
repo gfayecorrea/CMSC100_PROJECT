@@ -34,8 +34,8 @@ describe('Delete a blog should work', async () => {
       body: JSON.stringify(newBlog)
     });
 
-    // this checks if HTTP status code is equal to 400
-    response.statusCode.must.be.equal(400);
+    // this checks if HTTP status code is equal to 401
+    response.statusCode.must.be.equal(401);
   });
 
   const newUser = {
@@ -134,7 +134,8 @@ describe('Delete a blog should work', async () => {
       url: `${prefix}/blog/${id}`
     });
 
-    getResponse.statusCode.must.be.equal(200);
+    // this checks if HTTP status code is equal to 404 not found
+    getResponse.statusCode.must.be.equal(404);
   });
 
   let anotherId;
@@ -193,7 +194,7 @@ describe('Delete a blog should work', async () => {
     cookie = response.headers['set-cookie'];
   });
 
-  it('Should return the success = true if ID is deleted', async () => {
+  it('Should return the error when deleting another blog', async () => {
     const response = await app.inject({
       method: 'DELETE',
       headers: {

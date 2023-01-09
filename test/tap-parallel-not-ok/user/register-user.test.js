@@ -60,7 +60,7 @@ describe('Register a user should work', async () => {
       body: JSON.stringify(newUser)
     });
 
-    // this checks if HTTP status code is equal to 200
+    // this checks if HTTP status code is equal to 400
     response.statusCode.must.be.equal(400);
   });
 

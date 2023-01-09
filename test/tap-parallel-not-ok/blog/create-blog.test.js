@@ -43,8 +43,8 @@ describe('Creating a blog should work', async () => {
       body: JSON.stringify(newBlog)
     });
 
-    // this checks if HTTP status code is equal to 400
-    response.statusCode.must.be.equal(400);
+    // this checks if HTTP status code is equal to 401
+    response.statusCode.must.be.equal(401);
   });
 
   it('Should return the user that was created a new user', async () => {
