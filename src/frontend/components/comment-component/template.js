@@ -41,7 +41,7 @@ export function template () {
     </style>
     <form class="blog-create-form" @submit="${this.addComment}">
       <div class="label-input-group">
-      <textarea type="text" class="field-input" minlenght="1" maxlength="300" placeholder="Enter comment" id="description" name="description" value="${this.comment?.description}" required> </textarea>
+      <textarea type="text" class="field-input" maxlength="300" placeholder="Enter comment" id="description" name="description" value="${this.comment?.description}" required> </textarea>
       </div>
       <div class="flex-group">
         <button>
